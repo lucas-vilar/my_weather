@@ -1,0 +1,7 @@
+.env
+db.sqlite3
+my_weather_app/__pycache__/
+my_weather_app/migrations/__pycache__
+weather_project/__pycache__/
+
+

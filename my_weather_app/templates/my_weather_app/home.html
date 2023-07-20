@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <title>Weather</title>
+    <link rel="stylesheet" href="{% static 'my_weather_app/home.css' %}">
+</head>
+<body>
+    <header>
+        <h1>Enter a city name:</h1>
+    </header>
+    <main>
+        <form action="" method="get" class="city-search">
+            {% csrf_token %}
+            <input type="text" class="city-name" name="user-input">
+            <input type="submit" value="Search" class="search-button">
+        </form>
+        <br>
+        <br>
+        {% if condition %}
+            <div class="weather">
+                <figure> <img src="{% static icon %}" alt="" width="256" height="256"> </figure>
+                <span class="main-condition"> {{condition}} </span>
+                <span> {{detailed_condition}} </span>
+                <span> Temperature: {{temperature}}°C </span>
+                <span> Min temp: {{min_temp}}°C </span>
+                <span> Max temp: {{max_temp}}°C </span>
+                <span> Pressure: {{pressure}} </span>
+                <span> Humidity: {{humidity}} </span>
+                <span> Wind speed: {{wind}} </span>
+            </div>
+        {% elif error%}
+            {{error}}
+        {% endif %}
+    </main>
+</body>
+</html>
