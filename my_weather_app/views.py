@@ -33,5 +33,5 @@ def main(request):
         elif context['condition'] == 'Drizzle':
             context['icon'] = 'my_weather_app/figs/drizzle.png'
         else:
-            context['icon'] = 'my_weather/figs/mist.png'
+            context['icon'] = 'my_weather_app/figs/mist.png'
     return render(request, 'my_weather_app/home.html', context)
